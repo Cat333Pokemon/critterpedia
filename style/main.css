@@ -11,7 +11,7 @@ li{
     display: inline-block;
     margin: 0.25em;
 }
-li a{
+.mainlist li a{
     display: inline-block;
     border: 2px solid black;
     background-color: white;
@@ -19,6 +19,7 @@ li a{
     padding: 0.5em;
     max-width: 150px;
     vertical-align: top;
+    text-decoration: none;
 }
 a img{
     border: none;
