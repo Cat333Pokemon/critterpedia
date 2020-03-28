@@ -1,21 +1,46 @@
 <?php
-//input: array of hours
+
+$shadowsizes = ["Unknown", "Tiny", "Small", "Medium", "Large", "Very Large", "Huge", "Huge (Fin)", "Thin"];
+
+//input: array of hours;
+//     hours = true used for time outputs
+//     hours = false used for month outputs
 //output: string
-function timeprint($range){
-    if (count($range) == 24){
-        $hourstring = "All day";
+function timeprint($range, $hours = true){
+    if (count($range) == ($hours ? 24 : 12)){
+        if ($hours){
+            $hourstring = "All day";
+        }else{
+            $hourstring = "Year-round";
+        }
     }else{
+        if (!$hours){
+            //using months, so deduct 1 to use same logic as hours
+            for ($i = 0; $i < count($range); $i++){
+                $range[$i]--;
+            }
+        }
         $hourstring = "";
         if ($range[0] == 0){
             //otherwise at midnight, so wrap around to find true start time
-            $temp = 24;
+            $temp = ($hours ? 24 : 12);
             for ($i = count($range) - 1; $i >= 0; $i--){
                 if ($range[$i] != $temp - 1){
                     if ($i == count($range)){
-                        //23 is not at the end of the array, so it starts at midnight
-                        $hourstring .= date("g a", mktime(0));
+                        if ($hours){
+                            //23 is not at the end of the array, so it starts at midnight
+                            $hourstring .= date("g a", mktime(0));
+                        }else{
+                            //...January
+                            $hourstring .= date("M", mktime(null, null, null, 1));
+                        }
                     }else{
-                        $hourstring .= date("g a", mktime($range[$i + 1]));
+                        if ($hours){
+                            $hourstring .= date("g a", mktime($range[$i + 1]));
+                        }else{
+                            $hourstring .= date("M", mktime(null, null, null, $range[$i + 1] + 1));
+                        }
+                        
                         $wraptime = $range[$i + 1];
                     }
                     break; //starting time found, so continue
@@ -34,14 +59,32 @@ function timeprint($range){
                     break;
                 }
                 if ($temp > -1){
-                    $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1)) . '<br />';
+                    if ($hours){
+                        //Add one extra because the end time should be the NEXT hour
+                        $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1)) . '<br />';
+                    }else{
+                        //Don't add one extra because the range doesn't include the following month (while the end time should be the NEXT hour)
+                        $hourstring .= ' &ndash; ' . date("M", mktime(null,null,null, $temp + 1)) . '<br />';
+                    }
+                    
                 }
 
-                $hourstring .= date("g a", mktime($hour));
+                if ($hours){
+                    $hourstring .= date("g a", mktime($hour));
+                }else{
+                    $hourstring .= date("M", mktime(null,null,null, $hour + 1)); //One extra because of the offset
+                }
             }
             $temp = $hour;
         }
-        $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1));
+        if ($hours){
+            //Add one extra because the end time should be the NEXT hour
+            $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1));    
+        }else{
+            //Don't add one extra because the range doesn't include the following month (while the end time should be the NEXT hour)
+            $hourstring .= ' &ndash; ' . date("M", mktime(null,null,null, $temp + 1));   
+        }
+        
         
 
         

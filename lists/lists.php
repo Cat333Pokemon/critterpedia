@@ -42,9 +42,10 @@ require_once("../includes/header.php");
 if (isset($rdb)){
     //database loaded
     if (isset($rdb["bugs"])){
-        echo '<ul>';
         foreach ($rdb["bugs"] as $bug){
-            echo '<li class="critterlist">
+            $monthstring = timeprint($bug -> months, false);
+            $hourstring = timeprint($bug -> hours);
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($bug -> name)) . '">
                 <img src="/images/';
                     if (file_exists('../images/bugs/' . $bug -> name . '.png')){
                         echo 'bugs/' . rawurlencode($bug -> name) . '.png';
@@ -53,13 +54,19 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($bug -> name) . '" />
                 <h3>' . htmlspecialchars($bug -> name) . '</h3>
-            </li>';
+                <p>' . $monthstring . '<br />' .
+                    $hourstring . '<br />' .
+                    (isset($fish -> location) ? htmlspecialchars($bug -> location) . '<br />' : '') .
+                    (isset($fish -> price) ? number_format($bug -> price) . '<br />' : '') . '
+                </p>
+            </a>';
         }
-        echo '</ul>';
     }else if (isset($rdb["fish"])){
-        echo '<ul>';
         foreach ($rdb["fish"] as $fish){
-            echo '<li class="critterlist">
+            $monthstring = timeprint($fish -> months, false);
+            $hourstring = timeprint($fish -> hours);
+
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($fish -> name)) . '">
                 <img src="/images/';
                     if (file_exists('../images/fish/' . $fish -> name . '.png')){
                         echo 'fish/' . rawurlencode($fish -> name) . '.png';
@@ -68,34 +75,32 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($fish -> name) . '" />
                 <h3>' . htmlspecialchars($fish -> name) . '</h3>
-            </li>';
+                <p>' . $monthstring . '<br />' .
+                    $hourstring . '<br />' .
+                    (isset($fish -> location) ? htmlspecialchars($fish -> location) . '<br />' : '') .
+                    (isset($fish -> price) ? number_format($fish -> price) . '<br />' : '') .
+                    (isset($fish -> shadow) ? $shadowsizes[$fish -> shadow] . '<br />' : '') . '
+                </p>
+            </a>';
         }
-        echo '</ul>';
     }else if (isset($rdb["fossils"])){
-        echo '<ul>';
         foreach ($rdb["fossils"] as $fossil){
             if (file_exists('../images/fossils/' . $fossil -> name . '.jpg')){
-                echo '<li>
-                    <a class="critterlist" style="max-width: none;" href="/images/fossils/full/' .
+                echo '<a class="critterlist" href="/images/fossils/full/' .
                         rawurlencode($fossil -> name) . '.jpg" target="_blank" id="' . preg_replace("/[^a-z]/", '', strtolower($fossil -> name)) . '">
                         <img src="/images/fossils/' . rawurlencode($fossil -> name) . '.jpg" alt="' . htmlspecialchars($fossil -> name) . '" />
                         <h3>' . htmlspecialchars($fossil -> name) . '</h3>
-                    </a>
-                </li>';
+                    </a>';
             }else{
-                echo '<li>
-                    <a class="critterlist" style="max-width: none;" id="' . preg_replace("/[^a-z]/", '', strtolower($fossil -> name)) . '">
-                        <img src="/images/noimage.png" alt="' . htmlspecialchars($fossil -> name) . '" />
+                echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($fossil -> name)) . '">
+                        <img src="/images/noimage-fossil.png" alt="' . htmlspecialchars($fossil -> name) . '" />
                         <h3>' . htmlspecialchars($fossil -> name) . '</h3>
-                    </a>
-                </li>';
+                    </a>';
             }
         }
-        echo '</ul>';
     }else if (isset($rdb["reactions"])){
-        echo '<ul>';
         foreach ($rdb["reactions"] as $reaction){
-            echo '<li class="critterlist">
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($reaction -> name)) . '">
                 <img src="/images/';
                     if (file_exists('../images/reactions/' . $reaction -> name . '.png')){
                         echo 'reactions/' . rawurlencode($reaction -> name) . '.png';
@@ -104,15 +109,12 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($reaction -> name) . '" />
                 <h3>' . htmlspecialchars($reaction -> name) . '</h3>
-            </li>';
+            </a>';
         }
-        echo '</ul>';
     }else if (isset($rdb["songs"])){
-        echo '<ul>';
         foreach ($rdb["songs"] as $song){
-            echo '<li>
-                <a class="critterlist" href="/images/songs/512/' .
-                    rawurlencode($song -> name) . '.png" target="_blank">
+            echo '<a class="critterlist" href="/images/songs/512/' .
+                    rawurlencode($song -> name) . '.png" target="_blank" id="' . preg_replace("/[^a-z]/", '', strtolower($song -> name)) . '">
                     <img width="150" height="150" src="/images/';
                         if (file_exists('../images/songs/' . $song -> name . '.jpg')){
                             echo 'songs/' . rawurlencode($song -> name) . '.jpg';
@@ -121,14 +123,11 @@ if (isset($rdb)){
                         }
                     echo '" alt="' . htmlspecialchars($song -> name) . '" />
                     <h3>' . htmlspecialchars($song -> name) . '</h3>
-                </a>
-            </li>';
+                </a>';
         }
-        echo '</ul>';
     }else if (isset($rdb["villagers"])){
-        echo '<ul>';
         foreach ($rdb["villagers"] as $villager){
-            echo '<li class="critterlist">
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($villager -> name)) . '">
                 <img src="/images/noimage.png" alt="' . htmlspecialchars($villager -> name) . '" />
                 <h3>' . htmlspecialchars($villager -> name) . '</h3>
                 <p>' . htmlspecialchars(
@@ -136,9 +135,8 @@ if (isset($rdb)){
                     $villager -> personality . ' ' .
                     $villager -> species) .
                 '</p>
-            </li>';
+            </a>';
         }
-        echo '</ul>';
     }
 }
 

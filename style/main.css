@@ -3,11 +3,11 @@ body{
     text-align: center;
     background-color: #EFE;
 }
-ul{
+ul.mainlist{
     display: inline-block;
     padding-left: 0;
 }
-li{
+.mainlist li{
     display: inline-block;
     margin: 0.25em;
 }
@@ -23,8 +23,6 @@ li{
 }
 a img{
     border: none;
-    display: block;
-    margin-bottom: 0.5em;
 }
 .alert{
     color: white;
@@ -38,6 +36,37 @@ pre{
 }
 
 /* What's available now? page */
+.nowtable{
+    border: 2px solid #A00;
+    background-color: #A00;
+    border-radius: 1em;
+    margin: auto;
+}
+.nowtable tr{
+    background-color: white;
+}
+.nowtable td{
+    padding: 0 3px;
+}
+.nownew td{
+    background-color: #BFB;
+}
+.nowleaving td{
+    background-color: #FFB;
+}
+.nowpic{ /* Image of critter */
+    width: 64px;
+    height: 64px;
+}
+.nowicon{ /* New/leaving icon */
+    position: absolute;
+    left: -18px;
+    top: -8px;
+    width: 32px;
+    height: 32px;
+}
+
+
 .critterlist{
     display: inline-block;
     vertical-align: top;
@@ -46,4 +75,5 @@ pre{
     border-radius: 1em;
     padding: 0.5em;
     margin: 0.25em;
+    text-align: center;
 }

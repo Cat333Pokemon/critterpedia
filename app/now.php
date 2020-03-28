@@ -19,12 +19,10 @@ require_once("../includes/header.php");
 <?php
 if (!isset($error_message)){
     //no error loading database
-    //print_r($rdb);
     foreach($rdb as $dname => $dlist){
-        echo '<h3>' . $dname . '</h3>
-            <ul>';
+        echo '<h3 id="' . $dname . '">' . $dname . '</h3>
+            <table class="nowtable">';
         
-        //echo '<div class="critterlist"><h3>' . $dname . '</h3>';
         foreach ($dlist as $dcritter){
             
             
@@ -35,40 +33,48 @@ if (!isset($error_message)){
 
                 $hourstring = timeprint($dcritter -> hours);
 
-
-                echo '<li class="critterlist" style="position: relative;">';
+                $dleaving = false;
+                $dnew = false;
                 if (!in_array($hoffset + date("n") % 12 + 1, $dcritter -> months)){
-                    //leaving next month
-                    echo '<span style="position: absolute; right: -8px; top: -10px;"><img src="/images/icon-leaving.png" alt="Leaving" title="Leaving next month" /></span>';
+                    $dleaving = true;
                 }
                 if (!in_array($hoffset + (date("n") - 2) % 12 + 1, $dcritter -> months)){
+                    $dnew = true;
+                }
+
+
+                echo '<tr class="' . ($dleaving ? 'nowleaving' : '') . ' ' . ($dnew ? 'nownew' : '') . '">
+                    <td style="position: relative;">';
+                if ($dleaving){
+                    //leaving next month
+                    echo '<img class="nowicon" src="/images/icon-leaving.png" alt="Leaving" title="Leaving next month" />';
+                }
+                if ($dnew && !$dleaving){
                     //new this month (unless this is the ONLY month of availability)
-                    echo '<span style="position: absolute; left: -8px; top: -10px;"><img src="/images/icon-new.png" alt="New" title="New this month" /></span>';
+                    echo '<img class="nowicon" src="/images/icon-new.png" alt="New" title="New this month" />';
                 }
 
                 echo '<img src="/images/';
-                if (file_exists('../images/' . $dname . '/' . $dcritter -> name . '.png')){
-                    echo rawurlencode($dname) . '/' . rawurlencode($dcritter -> name) . '.png';
-                }else{
-                    echo 'noimage.png';
-                }
-                echo '" alt="' . htmlspecialchars($dcritter -> name) . '" />
-                    <h3>' . htmlspecialchars($dcritter -> name) . '</h3>
-                    <p>' . $hourstring . '</p>';
+                    if (file_exists('../images/' . $dname . '/' . $dcritter -> name . '.png')){
+                        echo rawurlencode($dname) . '/' . rawurlencode($dcritter -> name) . '.png';
+                    }else{
+                        echo 'noimage.png';
+                    }
+                    echo '" alt="' . htmlspecialchars($dcritter -> name) . '" class="nowpic" />
+                </td>
+                <td><strong>' . htmlspecialchars($dcritter -> name) . '</strong></td>
+                <td>' . $hourstring . '</td>' .
+                (isset($dcritter -> location) ? '<td>' . htmlspecialchars($dcritter -> location) . '</td>' : '') .
+                (isset($dcritter -> price) ? '<td style="text-align: right;">' . number_format($dcritter -> price) . '</td>' : '') .
+                (isset($dcritter -> shadow) ? '<td>' . $shadowsizes[$dcritter -> shadow] . '</td>' : '') .
 
-                //echo '<span style="';
-
-                //still in next month
-                //echo '">' . htmlspecialchars($dcritter -> name) . '</span><br />';
-
-                echo '</li>';
+                '</tr>';
 
                 
             }
             
         }
-        echo '</ul>';
-        //echo '</div>';
+        echo '</table>';
     }
 }
 ?>
