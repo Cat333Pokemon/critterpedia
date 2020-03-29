@@ -64,7 +64,7 @@ function timeprint($range, $hours = true){
                         $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1)) . '<br />';
                     }else{
                         //Don't add one extra because the range doesn't include the following month (while the end time should be the NEXT hour)
-                        $hourstring .= ' &ndash; ' . date("M", mktime(null,null,null, $temp + 1)) . '<br />';
+                        $hourstring .= ' &ndash; ' . date("M", mktime(null, null, null, $temp + 1)) . '<br />';
                     }
                     
                 }
@@ -72,7 +72,7 @@ function timeprint($range, $hours = true){
                 if ($hours){
                     $hourstring .= date("g a", mktime($hour));
                 }else{
-                    $hourstring .= date("M", mktime(null,null,null, $hour + 1)); //One extra because of the offset
+                    $hourstring .= date("M", mktime(null, null, null, $hour + 1)); //One extra because of the offset
                 }
             }
             $temp = $hour;
@@ -82,7 +82,7 @@ function timeprint($range, $hours = true){
             $hourstring .= ' &ndash; ' . date("g a", mktime($temp + 1));    
         }else{
             //Don't add one extra because the range doesn't include the following month (while the end time should be the NEXT hour)
-            $hourstring .= ' &ndash; ' . date("M", mktime(null,null,null, $temp + 1));   
+            $hourstring .= ' &ndash; ' . date("M", mktime(null, null, null, $temp + 1));   
         }
         
         
@@ -123,7 +123,7 @@ if (isset($dbs)){
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
     <title><?= htmlspecialchars($pagetitle) ?> &ndash; Critterpedia</title>
     <meta name="description" content="A site containing lists and details on the critters and more in Animal Crossing: New Horizons" />
     <link rel="stylesheet" href="/style/main.css" />

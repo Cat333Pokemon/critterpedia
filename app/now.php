@@ -20,7 +20,7 @@ require_once("../includes/header.php");
 if (!isset($error_message)){
     //no error loading database
     foreach($rdb as $dname => $dlist){
-        echo '<h3 id="' . $dname . '">' . $dname . '</h3>
+        echo '<h3 id="' . $dname . '">' . strtoupper(substr($dname, 0, 1)) . substr($dname, 1) . '</h3>
             <table class="nowtable">';
         
         foreach ($dlist as $dcritter){
@@ -63,10 +63,10 @@ if (!isset($error_message)){
                     echo '" alt="' . htmlspecialchars($dcritter -> name) . '" class="nowpic" />
                 </td>
                 <td><strong>' . htmlspecialchars($dcritter -> name) . '</strong></td>
-                <td>' . $hourstring . '</td>' .
+                <td style="white-space: nowrap;">' . $hourstring . '</td>' .
                 (isset($dcritter -> location) ? '<td>' . htmlspecialchars($dcritter -> location) . '</td>' : '') .
-                (isset($dcritter -> price) ? '<td style="text-align: right;">' . number_format($dcritter -> price) . '</td>' : '') .
                 (isset($dcritter -> shadow) ? '<td>' . $shadowsizes[$dcritter -> shadow] . '</td>' : '') .
+                //(isset($dcritter -> price) ? '<td style="text-align: right;">' . number_format($dcritter -> price) . '</td>' : '') .
 
                 '</tr>';
 

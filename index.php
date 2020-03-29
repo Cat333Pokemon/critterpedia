@@ -3,8 +3,8 @@
     <h3>What's Available Now?</h3>
     <p>Choose a hemisphere:</p>
     <ul class="mainlist">
-        <li><a href="/app/north/"><img src="/images/noimage.png" alt="Northern Hemisphere" /> Northern</a>
-        </li><li><a href="/app/south/"><img src="/images/noimage.png" alt="Southern Hemisphere" /> Southern</a></li>
+        <li><a href="/app/north/"><img src="/images/menu/northern.png" alt="Northern Hemisphere" /> Northern</a>
+        </li><li><a href="/app/south/"><img src="/images/menu/southern.png" alt="Southern Hemisphere" /> Southern</a></li>
     </ul>
 
     <h3>Lists</h3>
@@ -20,9 +20,13 @@
     <h3>Downloadable Spreadsheet</h3>
     <p>Would you like to have the list offline and interactive? Download the offline Excel spreadsheet to keep track of your collection.</p>
     <ul class="mainlist">
-        <li><a href="/spreadsheet/checklist-v2.xlsx"><img src="/images/menu/excel.png" alt="Excel Icon" /> Version 2<br />(March 26, 2020)</a></li>
-        <li><a href="/spreadsheet/checklist-v1.xlsx"><img src="/images/menu/excel.png" alt="Excel Icon" /> Version 1<br />(March 24, 2020)</a></li>
+        <li><a href="/spreadsheet/checklist-v3.xlsx"><img src="/images/menu/excel.png" alt="Excel Icon" /> Version 3<br />(March 28, 2020)</a></li>
     </ul>
+    <p>Need an older version?</p>
+    <p>
+        <a href="/spreadsheet/checklist-v2.xlsx">Version 2 (March 26, 2020)</a><br />
+        <a href="/spreadsheet/checklist-v1.xlsx">Version 1 (March 24, 2020)</a>
+    </p>
 
     <h3>Lists Coming Soon</h3>
     <p>These lists aren't available yet, but expect to see them soon.</p>

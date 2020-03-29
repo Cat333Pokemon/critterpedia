@@ -89,8 +89,9 @@ if (isset($rdb)){
                 echo '<a class="critterlist" href="/images/fossils/full/' .
                         rawurlencode($fossil -> name) . '.jpg" target="_blank" id="' . preg_replace("/[^a-z]/", '', strtolower($fossil -> name)) . '">
                         <img src="/images/fossils/' . rawurlencode($fossil -> name) . '.jpg" alt="' . htmlspecialchars($fossil -> name) . '" />
-                        <h3>' . htmlspecialchars($fossil -> name) . '</h3>
-                    </a>';
+                        <h3>' . htmlspecialchars($fossil -> name) . '</h3>' .
+                        (isset($fossil -> parts) ? '<p>' . nl2br(htmlspecialchars(implode("\n", $fossil -> parts))) . '</p>' : '') .
+                    '</a>';
             }else{
                 echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($fossil -> name)) . '">
                         <img src="/images/noimage-fossil.png" alt="' . htmlspecialchars($fossil -> name) . '" />
