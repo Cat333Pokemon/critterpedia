@@ -13,6 +13,7 @@
     <li>The contributors to <strong>GameFAQs</strong> for much of the information:
         <ul>
             <li><strong>John Edwards (KyoraStryker)</strong> for his <a rel="nofollow" href="https://gamefaqs.gamespot.com/switch/248082-animal-crossing-new-horizons/faqs/78225" target="_blank">FAQ</a></li>
+            <li><strong>Softbind03</strong> for letting me visit their island to take pictures of their fossil collection</li>
         </ul>
     </li>
 </ul>
