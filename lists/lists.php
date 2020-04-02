@@ -41,6 +41,16 @@ require_once("../includes/header.php");
 
 if (isset($rdb)){
     //database loaded
+
+    if (isset($rdb["bugs"]) || isset($rdb["fish"])){
+        //Hemisphere selector
+        echo '<p><strong>Hemisphere:</strong><br />
+            <input type="radio" id="nhem" name="hemi" checked /><label for="nhem"> Northern Hemisphere</label><br />
+            <input type="radio" id="shem" name="hemi" disabled /><label for="shem"> Southern Hemisphere</label><br />
+            (S.H. not added yet)
+        </p>';
+    }
+
     if (isset($rdb["bugs"])){
         foreach ($rdb["bugs"] as $bug){
             $monthstring = timeprint($bug -> months, false);

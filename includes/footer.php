@@ -7,7 +7,7 @@
             <a href="mailto:cat333pokemon@aol.com?subject=Critterpedia">E-mail me</a> &bull;
             <a href="https://github.com/Cat333Pokemon/critterpedia/" target="_blank">GitHub</a> &bull;
             <a href="http://zorua.me/" target="_blank">My other websites</a></p>
-        <p>Additional credit goes to the folks at <a href="https://nookipedia.com/" target="_blank">Nookipedia</a>. [Add link to credits page here.]</p>
+        <p><a href="/thanks/">Additional credits</a></p>
         <p><em>Animal Crossing: New Horizons</em> &copy;2020<?= (date("Y") > 2020 ? '&ndash;' . date("Y") : '') ?> Nintendo</p>
     </footer>
 </body>

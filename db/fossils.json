@@ -22,7 +22,7 @@
 {"name":"megaloceros","parts":["left megalo side","right megalo side"]},
 {"name":"myllokunmingia"},
 {"name":"ophthalmosaurus","parts":["ophthalmo skull","ophthalmo torso"]},
-{"name":"pachycephalosaurus","parts":["pachysaurus skull","pachysaurus tail"]},
+{"name":"pachycephalosaurus","parts":["pachy skull","pachy tail"]},
 {"name":"parasaurolophus","parts":["parasaur skull","parasaur tail","parasaur torso"]},
 {"name":"plesiosaurus","parts":["plesio body","plesio skull","plesio tail"]},
 {"name":"pteranodon","parts":["ptera body","left ptera wing","right ptera wing"]},

@@ -33,6 +33,7 @@
     <ul class="mainlist">
         </li><li><a href="#/list/miles/"><img src="/images/noimage.png" alt="Nook Miles Challenges" /> Nook Miles Challenges</a>
         </li><li><a href="#/list/recipes/"><img src="/images/noimage.png" alt="DIY Recipes" /> DIY Recipes</a>
+        </li><li><a href="#/list/flowers/"><img src="/images/noimage.png" alt="Flowers" /> Flowers</a>
         
     </ul>
 

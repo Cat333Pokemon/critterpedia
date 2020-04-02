@@ -9,7 +9,7 @@
 {"name":"bitterling","months":[1,2,3,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":900,"shadow":1},
 {"name":"black bass","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":400,"shadow":4},
 {"name":"blowfish","months":[1,2,11,12],"hours":[0,1,2,3,21,22,23],"location":"Sea","price":5000,"shadow":3},
-{"name":"blue marlin","months":[1,2,7,8,9,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Pier","price":10000,"shadow":6},
+{"name":"blue marlin","months":[1,2,3,4,7,8,9,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Pier","price":10000,"shadow":6},
 {"name":"bluegill","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[9,10,11,12,13,14,15],"location":"River","price":180,"shadow":2},
 {"name":"butterfly fish","months":[4,5,6,7,8,9],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":1000,"shadow":2},
 {"name":"carp","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Pond","price":300,"shadow":4},

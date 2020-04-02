@@ -15,13 +15,34 @@ $dbs = ["bugs","fish"];
 require_once("../includes/header.php"); 
 
 ?>
-<p>The current month is <strong><?= date("F") ?></strong>. The green <q>New</q> is new this month. The yellow warning symbol is leaving next month.</p>
+<p>Green rows with a <q>New</q> icon are new this month.<br />
+    Yellow rows with a warning icon are leaving next month.
+</p>
+<p><strong>Month:</strong>
+    <select disabled>
+<?php
+        for($i = 1; $i <= 12; $i++){
+            echo '<option value="' . $i . '"' . ($i == date("n") ? ' selected' : '') . '>' . date("F", mktime(null, null, null, $i)) . "</option>\r\n";
+        } ?>
+    </select> (not added yet)</p>
+<p><strong>Sort:</strong> <a href="#">Name</a> &bull; <a href="#">Location</a> &bull; <a href="#">New &amp; Leaving</a> (not added yet)</p>
+<p><strong>Prices:</strong>
+    <input type="radio" id="prhide" name="prices" checked /><label for="prhide"> Hidden</label> &nbsp;
+    <input type="radio" id="prshow" name="prices" disabled /><label for="prshow"> Visible</label> (not added yet)
+</p>
 <?php
 if (!isset($error_message)){
     //no error loading database
     foreach($rdb as $dname => $dlist){
         echo '<h3 id="' . $dname . '">' . strtoupper(substr($dname, 0, 1)) . substr($dname, 1) . '</h3>
-            <table class="nowtable">';
+            <table class="nowtable">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Time<br />Available</th>
+                ' . (isset($dlist[0] -> location) ? '<th>Location</th>' : '') . '
+                ' . (isset($dlist[0] -> shadow) ? '<th>Shadow<br />Size</th>' : '') . '
+            </tr>';
         
         foreach ($dlist as $dcritter){
             

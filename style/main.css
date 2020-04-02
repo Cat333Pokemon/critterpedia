@@ -1,4 +1,4 @@
-body{
+body, select{
     font-family: Arial, Helvetica, "Liberation Sans", "Noto Sans", sans-serif;
     text-align: center;
     background-color: #EFE;
@@ -42,8 +42,12 @@ pre{
     border-radius: 1em;
     margin: auto;
 }
-.nowtable tr{
+.nowtable td{
     background-color: white;
+}
+.nowtable th{
+    vertical-align: bottom;
+    color: white;
 }
 .nowtable td{
     padding: 0 3px;
@@ -77,4 +81,9 @@ pre{
     margin: 0.25em;
     text-align: center;
     text-decoration: none;
+}
+
+/* Thank-you list */
+.thankyou{
+    text-align: left;
 }
