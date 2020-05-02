@@ -21,10 +21,11 @@
     <h3>Downloadable Spreadsheet</h3>
     <p>Would you like to have the list offline and interactive? Download the offline Excel spreadsheet to keep track of your collection.</p>
     <ul class="mainlist">
-        <li><a href="/spreadsheet/checklist-v3.xlsx"><img src="/images/menu/excel.png" alt="Excel Icon" /> Version 3<br />(March 28, 2020)</a></li>
+        <li><a href="/spreadsheet/checklist-v4.xlsx"><img src="/images/menu/excel.png" alt="Excel Icon" /> Version 4<br />(May 1, 2020)</a></li>
     </ul>
     <p>Need an older version?</p>
     <p>
+        <a href="/spreadsheet/checklist-v3.xlsx">Version 3 (March 28, 2020)</a><br />
         <a href="/spreadsheet/checklist-v2.xlsx">Version 2 (March 26, 2020)</a><br />
         <a href="/spreadsheet/checklist-v1.xlsx">Version 1 (March 24, 2020)</a>
     </p>
