@@ -12,6 +12,7 @@
         <li><a href="/list/bugs/"><img src="/images/menu/bugs.png" alt="Bugs" /><br />Bugs</a>
         </li><li><a href="/list/fish/"><img src="/images/menu/fish.png" alt="Fish" /><br />Fish</a>
         </li><li><a href="/list/fossils/"><img src="/images/menu/fossils.png" alt="Fossils" /><br />Fossils</a>
+        </li><li><a href="/list/art/"><img src="/images/noimage.png" alt="Art" /><br />Art</a>
         </li><li><a href="/list/songs/"><img src="/images/menu/songs.jpg" alt="K.K. Slider Songs" /><br />K.K. Slider Songs</a>
         </li><li><a href="/list/villagers/"><img src="/images/noimage.png" alt="Animal Villagers" /><br />Animal Villagers</a>
         </li><li><a href="/list/reactions/"><img src="/images/menu/reactions.png" alt="Reactions" /><br />Reactions</a></li>

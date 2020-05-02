@@ -44,14 +44,14 @@
 {"name":"moray eel","months":[8,9,10],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":2000,"shadow":8},
 {"name":"Napoleonfish","months":[7,8],"hours":[4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"location":"Sea","price":10000,"shadow":6},
 {"name":"neon tetra","months":[4,5,6,7,8,9,10,11],"hours":[9,10,11,12,13,14,15],"location":"River","price":500,"shadow":1},
-{"name":"nibble fish","months":[5,6,7,8,9],"hours":[9,10,11,12,13,14,15],"location":"River","price":1500,"shadow":2},
+{"name":"nibble fish","months":[5,6,7,8,9],"hours":[9,10,11,12,13,14,15],"location":"River","price":1500,"shadow":1},
 {"name":"oarfish","months":[1,2,3,4,5,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":9000,"shadow":6},
 {"name":"ocean sunfish","months":[7,8,9],"hours":[4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"location":"Sea","price":4000,"shadow":7},
 {"name":"olive flounder","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":800,"shadow":5},
 {"name":"pale chub","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[9,10,11,12,13,14,15],"location":"River","price":200,"shadow":1},
 {"name":"pike","months":[9,10,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":1800,"shadow":5},
 {"name":"piranha","months":[6,7,8,9],"hours":[0,1,2,3,9,10,11,12,13,14,15,21,22,23],"location":"River","price":2500,"shadow":2},
-{"name":"pond smelt","months":[1,2,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":500,"shadow":2},
+{"name":"pond smelt","months":[1,2,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":400,"shadow":2},
 {"name":"pop-eyed goldfish","months":[1,2,3,4,5,6,7,8,9,10,11,12],"hours":[9,10,11,12,13,14,15],"location":"Pond","price":1300,"shadow":1},
 {"name":"puffer fish","months":[7,8,9],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":250,"shadow":3},
 {"name":"rainbowfish","months":[5,6,7,8,9,10],"hours":[9,10,11,12,13,14,15],"location":"River","price":800,"shadow":1},
@@ -78,5 +78,5 @@
 {"name":"tuna","months":[1,2,3,4,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Pier","price":7000,"shadow":6},
 {"name":"whale shark","months":[6,7,8,9],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":13000,"shadow":7},
 {"name":"yellow perch","months":[1,2,3,10,11,12],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"River","price":300,"shadow":3},
-{"name":"zebra turkeyfish","months":[4,5,6,7,8,9,10,11],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":500,"shadow":3}                          
+{"name":"zebra turkeyfish","months":[4,5,6,7,8,9,10,11],"hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],"location":"Sea","price":500,"shadow":3}                               
 ]    

@@ -18,6 +18,10 @@ switch($_GET['uselist']){
         $dbs = ["fossils"];
         $listtitle = "Fossils";
         break;
+    case "art":
+        $dbs = ["art"];
+        $listtitle = "Art";
+        break;
     case "reactions":
         $dbs = ["reactions"];
         $listtitle = "Reactions";
@@ -66,8 +70,8 @@ if (isset($rdb)){
                 <h3>' . htmlspecialchars($bug -> name) . '</h3>
                 <p>' . $monthstring . '<br />' .
                     $hourstring . '<br />' .
-                    (isset($fish -> location) ? htmlspecialchars($bug -> location) . '<br />' : '') .
-                    (isset($fish -> price) ? number_format($bug -> price) . '<br />' : '') . '
+                    (isset($bug -> location) ? htmlspecialchars($bug -> location) . '<br />' : '') .
+                    (isset($bug -> price) ? number_format($bug -> price) . ' Bells<br />' : '') . '
                 </p>
             </a>';
         }
@@ -88,7 +92,7 @@ if (isset($rdb)){
                 <p>' . $monthstring . '<br />' .
                     $hourstring . '<br />' .
                     (isset($fish -> location) ? htmlspecialchars($fish -> location) . '<br />' : '') .
-                    (isset($fish -> price) ? number_format($fish -> price) . '<br />' : '') .
+                    (isset($fish -> price) ? number_format($fish -> price) . ' Bells<br />' : '') .
                     (isset($fish -> shadow) ? $shadowsizes[$fish -> shadow] . '<br />' : '') . '
                 </p>
             </a>';
@@ -108,6 +112,19 @@ if (isset($rdb)){
                         <h3>' . htmlspecialchars($fossil -> name) . '</h3>
                     </a>';
             }
+        }
+    }else if (isset($rdb["art"])){
+        foreach ($rdb["art"] as $art){
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($art -> name)) . '">
+                <img src="/images/';
+                    if (file_exists('../images/art/' . $art -> name . '.png')){
+                        echo 'art/' . rawurlencode($art -> name) . '.png';
+                    }else{
+                        echo 'noimage.png';
+                    }
+                echo '" alt="' . htmlspecialchars($art -> name) . '" />
+                <h3>' . htmlspecialchars($art -> name) . '</h3>
+            </a>';
         }
     }else if (isset($rdb["reactions"])){
         foreach ($rdb["reactions"] as $reaction){
