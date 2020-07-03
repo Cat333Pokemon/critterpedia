@@ -72,10 +72,10 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($bug -> name) . '" />
                 <h3>' . htmlspecialchars($bug -> name) . '</h3>
-                <p>' . $monthstring . '<br />' .
+                <p class="cdata">&#128197; ' . $monthstring . '<br />&#128343; ' .
                     $hourstring . '<br />' .
-                    (isset($bug -> location) ? htmlspecialchars($bug -> location) . '<br />' : '') .
-                    (isset($bug -> price) ? number_format($bug -> price) . ' Bells<br />' : '') . '
+                    (isset($bug -> location) ? '&#128027; ' . htmlspecialchars($bug -> location) . '<br />' : '') .
+                    (isset($bug -> price) ? '&#128176; ' . number_format($bug -> price) . ' Bells<br />' : '') . '
                 </p>
             </a>';
         }
@@ -93,11 +93,11 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($fish -> name) . '" />
                 <h3>' . htmlspecialchars($fish -> name) . '</h3>
-                <p>' . $monthstring . '<br />' .
+                <p class="cdata">&#128197; ' . $monthstring . '<br />&#128343; ' .
                     $hourstring . '<br />' .
-                    (isset($fish -> location) ? htmlspecialchars($fish -> location) . '<br />' : '') .
-                    (isset($fish -> price) ? number_format($fish -> price) . ' Bells<br />' : '') .
-                    (isset($fish -> shadow) ? $shadowsizes[$fish -> shadow] . '<br />' : '') . '
+                    (isset($fish -> location) ? '&#127907; ' . htmlspecialchars($fish -> location) . '<br />' : '') .
+                    (isset($fish -> price) ? '&#128176; ' . number_format($fish -> price) . ' Bells<br />' : '') .
+                    (isset($fish -> shadow) ? '&#128207; ' . $shadowsizes[$fish -> shadow] . '<br />' : '') . '
                 </p>
             </a>';
         }
@@ -115,11 +115,11 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($sea -> name) . '" />
                 <h3>' . htmlspecialchars($sea -> name) . '</h3>
-                <p>' . $monthstring . '<br />' .
+                <p class="cdata">&#128197; ' . $monthstring . '<br />&#128343; ' .
                     $hourstring . '<br />' .
-                    (isset($sea -> location) ? htmlspecialchars($sea -> location) . '<br />' : '') .
-                    (isset($sea -> price) ? number_format($sea -> price) . ' Bells<br />' : '') .
-                    (isset($sea -> shadow) ? $shadowsizes[$sea -> shadow] . '<br />' : '') . '
+                    (isset($sea -> movement) ? '&#127946; ' . htmlspecialchars($sea -> movement) . '<br />' : '') .
+                    (isset($sea -> price) ? '&#128176; ' . number_format($sea -> price) . ' Bells<br />' : '') .
+                    (isset($sea -> shadow) ? '&#128207; ' . $shadowsizes[$sea -> shadow] . '<br />' : '') . '
                 </p>
             </a>';
         }
@@ -156,6 +156,9 @@ if (isset($rdb)){
             }
         }
     }else if (isset($rdb["reactions"])){
+        echo '<p>Four reactions are initially available after learning to use reactions. The other 40 are randomly taught by villagers of the specified personalities,
+            five per personality. Ones requiring high friendship may be learned after becoming close friends with a villager; they are not necessarily the last ones
+            learned for that personality.</p>';
         foreach ($rdb["reactions"] as $reaction){
             echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($reaction -> name)) . '">
                 <img src="/images/';
@@ -166,6 +169,9 @@ if (isset($rdb)){
                     }
                 echo '" alt="' . htmlspecialchars($reaction -> name) . '" />
                 <h3>' . htmlspecialchars($reaction -> name) . '</h3>
+                <p>' . (isset($reaction -> personality) ? htmlspecialchars($reaction -> personality) : '<em>Initial set</em>') .
+                    (isset($reaction -> friends) && $reaction -> friends ? '<br />(High friendship)' : '') .
+                '</p>
             </a>';
         }
     }else if (isset($rdb["songs"])){
@@ -191,6 +197,7 @@ if (isset($rdb)){
                     ($villager -> gender == 'm' ? 'Male ' : 'Female ') .
                     $villager -> personality . ' ' .
                     $villager -> species) .
+                '<br />&#127874; ' . date("M j", mktime(null, null, null, $villager -> birthmonth, $villager -> birthday)) .
                 '</p>
             </a>';
         }

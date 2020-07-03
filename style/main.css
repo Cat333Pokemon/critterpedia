@@ -69,6 +69,12 @@ pre{
     width: 32px;
     height: 32px;
 }
+.price_col{ /* Price column, hidden by default */
+    display: none;
+}
+td.price_col{ 
+    text-align: right;
+}
 
 
 .critterlist{
@@ -81,6 +87,9 @@ pre{
     margin: 0.25em;
     text-align: center;
     text-decoration: none;
+}
+.cdata{ /* Data about critters */
+    text-align: left;
 }
 
 /* Thank-you list */
