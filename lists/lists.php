@@ -14,6 +14,10 @@ switch($_GET['uselist']){
         $dbs = ["fish"];
         $listtitle = "Fish";
         break;
+    case "sea":
+        $dbs = ["sea"];
+        $listtitle = "Sea Creatures";
+        break;
     case "fossils":
         $dbs = ["fossils"];
         $listtitle = "Fossils";
@@ -97,6 +101,28 @@ if (isset($rdb)){
                 </p>
             </a>';
         }
+    }else if (isset($rdb["sea"])){
+        foreach ($rdb["sea"] as $sea){
+            $monthstring = timeprint($sea -> months, false);
+            $hourstring = timeprint($sea -> hours);
+
+            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($sea -> name)) . '">
+                <img src="/images/';
+                    if (file_exists('../images/sea/' . $sea -> name . '.png')){
+                        echo 'sea/' . rawurlencode($sea -> name) . '.png';
+                    }else{
+                        echo 'noimage.png';
+                    }
+                echo '" alt="' . htmlspecialchars($sea -> name) . '" />
+                <h3>' . htmlspecialchars($sea -> name) . '</h3>
+                <p>' . $monthstring . '<br />' .
+                    $hourstring . '<br />' .
+                    (isset($sea -> location) ? htmlspecialchars($sea -> location) . '<br />' : '') .
+                    (isset($sea -> price) ? number_format($sea -> price) . ' Bells<br />' : '') .
+                    (isset($sea -> shadow) ? $shadowsizes[$sea -> shadow] . '<br />' : '') . '
+                </p>
+            </a>';
+        }
     }else if (isset($rdb["fossils"])){
         foreach ($rdb["fossils"] as $fossil){
             if (file_exists('../images/fossils/' . $fossil -> name . '.jpg')){
@@ -115,16 +141,19 @@ if (isset($rdb)){
         }
     }else if (isset($rdb["art"])){
         foreach ($rdb["art"] as $art){
-            echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($art -> name)) . '">
-                <img src="/images/';
-                    if (file_exists('../images/art/' . $art -> name . '.png')){
-                        echo 'art/' . rawurlencode($art -> name) . '.png';
-                    }else{
-                        echo 'noimage.png';
-                    }
-                echo '" alt="' . htmlspecialchars($art -> name) . '" />
-                <h3>' . htmlspecialchars($art -> name) . '</h3>
-            </a>';
+            if (file_exists('../images/art/' . $art -> name . '.jpg')){
+                echo '<a class="critterlist" href="/images/art/full/' .
+                        rawurlencode($art -> name) . '.png" target="_blank" id="' . preg_replace("/[^a-z]/", '', strtolower($art -> name)) . '">
+                        <img src="/images/art/' . rawurlencode($art -> name) . '.jpg" alt="' . htmlspecialchars($art -> name) . '" />
+                        <h3>' . htmlspecialchars($art -> name) . '</h3>' .
+                        (isset($art -> parts) ? '<p>' . nl2br(htmlspecialchars(implode("\n", $art -> parts))) . '</p>' : '') .
+                    '</a>';
+            }else{
+                echo '<a class="critterlist" id="' . preg_replace("/[^a-z]/", '', strtolower($art -> name)) . '">
+                        <img src="/images/noimage.png" alt="' . htmlspecialchars($art -> name) . '" />
+                        <h3>' . htmlspecialchars($art -> name) . '</h3>
+                    </a>';
+            }
         }
     }else if (isset($rdb["reactions"])){
         foreach ($rdb["reactions"] as $reaction){

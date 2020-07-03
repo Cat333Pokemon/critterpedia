@@ -11,6 +11,7 @@
     <ul class="mainlist">
         <li><a href="/list/bugs/"><img src="/images/menu/bugs.png" alt="Bugs" /><br />Bugs</a>
         </li><li><a href="/list/fish/"><img src="/images/menu/fish.png" alt="Fish" /><br />Fish</a>
+        </li><li><a href="/list/sea/"><img src="/images/menu/sea.png" alt="Sea Creatures" /><br />Sea Creatures</a>
         </li><li><a href="/list/fossils/"><img src="/images/menu/fossils.png" alt="Fossils" /><br />Fossils</a>
         </li><li><a href="/list/art/"><img src="/images/noimage.png" alt="Art" /><br />Art</a>
         </li><li><a href="/list/songs/"><img src="/images/menu/songs.jpg" alt="K.K. Slider Songs" /><br />K.K. Slider Songs</a>

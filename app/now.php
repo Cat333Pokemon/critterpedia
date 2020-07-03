@@ -11,7 +11,7 @@ if (isset($_GET['hemisphere']) && $_GET['hemisphere'] == 'south'){
 }
 
 $pagetitle = "What's Available Now? ($hemi Hemisphere)";
-$dbs = ["bugs","fish"];
+$dbs = ["bugs","fish","sea"];
 require_once("../includes/header.php"); 
 
 ?>
@@ -40,6 +40,7 @@ if (!isset($error_message)){
                 <th>Image</th>
                 <th>Name</th>
                 <th>Time<br />Available</th>
+                ' . (isset($dlist[0] -> movement) ? '<th>Movement</th>' : '') . '
                 ' . (isset($dlist[0] -> location) ? '<th>Location</th>' : '') . '
                 ' . (isset($dlist[0] -> shadow) ? '<th>Shadow<br />Size</th>' : '') . '
             </tr>';
@@ -85,6 +86,7 @@ if (!isset($error_message)){
                 </td>
                 <td><strong>' . htmlspecialchars($dcritter -> name) . '</strong></td>
                 <td style="white-space: nowrap;">' . $hourstring . '</td>' .
+                (isset($dcritter -> movement) ? '<td>' . htmlspecialchars($dcritter -> movement) . '</td>' : '') .
                 (isset($dcritter -> location) ? '<td>' . htmlspecialchars($dcritter -> location) . '</td>' : '') .
                 (isset($dcritter -> shadow) ? '<td>' . $shadowsizes[$dcritter -> shadow] . '</td>' : '') .
                 //(isset($dcritter -> price) ? '<td style="text-align: right;">' . number_format($dcritter -> price) . '</td>' : '') .
